@@ -1,14 +1,6 @@
-module.exports = {
-  purge: ["./public/**/*.html"],
-  theme: {
-    extend: {},
-  },
-  variants: {
-    extend: {
-      boxShadow: ['responsive', 'group-hover', 'focus-within', 'hover', 'focus'],
-    }
-  },
-  plugins: [
+const plugin = require('tailwindcss/plugin')
+
+module.exports = function () {
     function({e, addUtilities}) {
         const newUtitlities = {
           '.neumorphism-gray-50-flat-sm': {
@@ -1931,9 +1923,8 @@ module.exports = {
           boxShadow : '0 0 0 #5c112f , inset 28px 28px 56px #5c112f ,\
           0 0 0 #aa1f57 , inset -28px -28px 56px #aa1f57 '
           },
-        }
+        };
       
-        addUtilities(newUtitlities, ['responsive','hover','focus','active'])
+        addUtilities(newUtitlities, ['responsive','hover','focus','active']);
     }
-  ],
 };
